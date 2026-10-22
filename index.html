@@ -1,16 +1,15 @@
-from pathlib import Path
 
-code = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f5f7ff">
 
-  <!-- Meta domain verification -->
-  <meta name="facebook-domain-verification" content="vvlm7yd644wjur4ns4sbisypo85u6m" />
+  <!-- Meta Domain Verification -->
+  <meta name="facebook-domain-verification" content="nb5f2747ndzyua4l64zkep06itvfc9" />
 
-  <title>Domain Verification | Website Security</title>
+  <title>Domain Verification | DomainGuard</title>
 
   <style>
     * {
@@ -21,7 +20,7 @@ code = r'''<!DOCTYPE html>
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Arial, sans-serif;
+        Roboto, Arial, sans-serif;
       background: #f5f7ff;
       color: #172033;
       min-height: 100vh;
@@ -34,7 +33,7 @@ code = r'''<!DOCTYPE html>
       justify-content: space-between;
       gap: 16px;
       padding: 0 8%;
-      background: rgba(255, 255, 255, 0.92);
+      background: #fff;
       border-bottom: 1px solid #e7eaf2;
     }
 
@@ -44,7 +43,6 @@ code = r'''<!DOCTYPE html>
       gap: 12px;
       font-size: 21px;
       font-weight: 750;
-      letter-spacing: -0.5px;
     }
 
     .logo-icon {
@@ -60,9 +58,8 @@ code = r'''<!DOCTYPE html>
 
     .nav-label {
       color: #667085;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      text-align: right;
     }
 
     main {
@@ -162,11 +159,7 @@ code = r'''<!DOCTYPE html>
       background: #fafbfe;
       padding: 15px 16px;
       border-radius: 12px;
-      margin-bottom: 26px;
-    }
-
-    .domain-icon {
-      font-size: 20px;
+      margin-bottom: 28px;
     }
 
     .domain-text {
@@ -239,10 +232,15 @@ code = r'''<!DOCTYPE html>
       flex: 1;
       min-width: 0;
       overflow-wrap: anywhere;
-      font-family: "SFMono-Regular", Consolas, monospace;
+      font-family: Consolas, monospace;
       font-size: 12px;
       color: #39415a;
       line-height: 1.7;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
     }
 
     .copy-btn {
@@ -250,17 +248,14 @@ code = r'''<!DOCTYPE html>
       background: white;
       padding: 9px 12px;
       border-radius: 8px;
-      cursor: pointer;
       color: #344054;
       font-size: 12px;
       font-weight: 700;
       white-space: nowrap;
-      transition: 0.2s;
     }
 
     .copy-btn:hover {
       background: #edf1ff;
-      border-color: #b9c7ff;
     }
 
     .notice {
@@ -270,12 +265,7 @@ code = r'''<!DOCTYPE html>
       padding: 16px;
       display: flex;
       gap: 12px;
-      margin-top: 27px;
-      margin-bottom: 26px;
-    }
-
-    .notice-icon {
-      font-size: 19px;
+      margin: 27px 0 26px;
     }
 
     .notice p {
@@ -299,7 +289,6 @@ code = r'''<!DOCTYPE html>
       border-radius: 11px;
       font-size: 14px;
       font-weight: 750;
-      cursor: pointer;
       transition: 0.2s;
     }
 
@@ -312,17 +301,12 @@ code = r'''<!DOCTYPE html>
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(49, 94, 251, 0.27);
     }
 
     .btn-secondary {
       color: #344054;
       border: 1px solid #dfe4ee;
       background: white;
-    }
-
-    .btn-secondary:hover {
-      background: #f8f9fc;
     }
 
     #message {
@@ -356,16 +340,12 @@ code = r'''<!DOCTYPE html>
       }
 
       .nav-label {
-        font-size: 11px;
+        font-size: 10px;
       }
 
       main {
         margin: 35px auto;
         padding: 0 15px;
-      }
-
-      .heading {
-        margin-bottom: 27px;
       }
 
       .subtitle {
@@ -386,7 +366,7 @@ code = r'''<!DOCTYPE html>
       }
 
       .secure-label {
-        margin-left: 32px;
+        margin-left: 30px;
       }
 
       .actions {
@@ -414,8 +394,8 @@ code = r'''<!DOCTYPE html>
       <div class="eyebrow">Website Security</div>
       <h1>Verify Your Domain</h1>
       <p class="subtitle">
-        Confirm ownership of your website to securely connect your
-        domain with your business tools and services.
+        Follow these steps to verify ownership of your website
+        with Meta Business Settings.
       </p>
     </div>
 
@@ -424,7 +404,7 @@ code = r'''<!DOCTYPE html>
         <div class="shield">🛡️</div>
         <div>
           <h2>Domain Ownership Verification</h2>
-          <p>Follow the steps below to verify your website.</p>
+          <p>Follow the instructions below to verify your website.</p>
         </div>
       </div>
 
@@ -432,8 +412,10 @@ code = r'''<!DOCTYPE html>
         <label class="field-label">Your Website Domain</label>
 
         <div class="domain-box">
-          <span class="domain-icon">🌐</span>
-          <span class="domain-text" id="domain">www.rajputanatourandtravel.com</span>
+          <span>🌐</span>
+          <span class="domain-text" id="domain">
+            main.dh5s3dxaan21g.amplifyapp.com
+          </span>
           <span class="secure-label">● HTTPS</span>
         </div>
 
@@ -442,10 +424,10 @@ code = r'''<!DOCTYPE html>
         <div class="step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Open your website's HTML file</h3>
+            <h3>Open your website project</h3>
             <p>
-              Open your website project in VS Code and locate
-              the index.html file in the root directory.
+              Open your website in VS Code and locate index.html
+              in the root directory of your project.
             </p>
           </div>
         </div>
@@ -453,15 +435,16 @@ code = r'''<!DOCTYPE html>
         <div class="step">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h3>Add your verification meta tag</h3>
+            <h3>Add the Meta verification tag</h3>
             <p>
-              Copy the exact verification tag provided by Meta and place it
-              inside the HTML head section.
+              The following tag must be inside the HTML head section.
             </p>
 
             <div class="code-box">
-              <code id="metaTag">&lt;meta name="facebook-domain-verification" content="vvlm7yd644wjur4ns4sbisypo85u6m" /&gt;</code>
-              <button class="copy-btn" type="button" onclick="copyTag()">Copy</button>
+              <code id="metaTag"></code>
+              <button class="copy-btn" type="button" onclick="copyTag()">
+                Copy
+              </button>
             </div>
           </div>
         </div>
@@ -471,9 +454,8 @@ code = r'''<!DOCTYPE html>
           <div class="step-content">
             <h3>Save and deploy your website</h3>
             <p>
-              Save index.html, commit your changes to GitHub, and push them
-              to the branch connected to AWS Amplify. Wait for the deployment
-              to finish successfully.
+              Save your changes, push the updated code to GitHub,
+              and wait for AWS Amplify to finish deploying.
             </p>
           </div>
         </div>
@@ -481,22 +463,22 @@ code = r'''<!DOCTYPE html>
         <div class="step">
           <div class="step-number">4</div>
           <div class="step-content">
-            <h3>Confirm the verification tag is live</h3>
+            <h3>Check the published HTML</h3>
             <p>
-              Open your published homepage, view its page source, and search
-              for facebook-domain-verification. Confirm the exact tag appears
-              in the HTML source.
+              Open your live homepage, choose View Page Source,
+              and search for facebook-domain-verification.
+              Confirm the exact tag is visible inside head.
             </p>
           </div>
         </div>
 
         <div class="notice">
-          <span class="notice-icon">ℹ️</span>
+          <span>ℹ️</span>
           <p>
-            <strong>Important:</strong> This page provides instructions only.
-            Domain verification is completed in Meta Business Settings, not
-            by clicking a button on this page. The tag must be present on the
-            actual homepage served for rajputanatourandtravel.com.
+            <strong>Important:</strong> This page only provides
+            instructions. It does not verify your domain automatically.
+            You must return to Meta Business Settings and click
+            Verify domain after publishing the correct tag.
           </p>
         </div>
 
@@ -522,10 +504,11 @@ code = r'''<!DOCTYPE html>
   </footer>
 
   <script>
-    const websiteDomain = "www.rajputanatourandtravel.com";
-    const websiteUrl = "https://www.rajputanatourandtravel.com";
+    const websiteDomain = "main.dh5s3dxaan21g.amplifyapp.com";
+    const websiteUrl = "https://main.dh5s3dxaan21g.amplifyapp.com/";
+
     const verificationTag =
-      '<meta name="facebook-domain-verification" content="vvlm7yd644wjur4ns4sbisypo85u6m" />';
+      '<meta name="facebook-domain-verification" content="nb5f2747ndzyua4l64zkep06itvfc9" />';
 
     document.getElementById("domain").textContent = websiteDomain;
     document.getElementById("metaTag").textContent = verificationTag;
@@ -538,7 +521,7 @@ code = r'''<!DOCTYPE html>
         message.textContent = "Meta verification tag copied successfully.";
       } catch (error) {
         message.textContent =
-          "Copy was blocked by your browser. Select and copy the tag shown above manually.";
+          "Copy was blocked. Select and copy the tag displayed above manually.";
       }
     }
 
@@ -548,7 +531,3 @@ code = r'''<!DOCTYPE html>
   </script>
 </body>
 </html>
-'''
-path = Path("/mnt/data/domain_verification.html")
-path.write_text(code, encoding="utf-8")
-print(f"Created {path} ({len(code.splitlines())} lines)")
