@@ -1,9 +1,14 @@
+from pathlib import Path
 
-<!DOCTYPE html>
+code = r'''<!DOCTYPE html>
 <html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f5f7ff">
+
+  <!-- Meta domain verification -->
+  <meta name="facebook-domain-verification" content="vvlm7yd644wjur4ns4sbisypo85u6m" />
 
   <title>Domain Verification | Website Security</title>
 
@@ -22,12 +27,12 @@
       min-height: 100vh;
     }
 
-    /* Navigation */
     nav {
-      height: 76px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
       padding: 0 8%;
       background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px solid #e7eaf2;
@@ -57,9 +62,9 @@
       color: #667085;
       font-size: 13px;
       font-weight: 600;
+      text-align: right;
     }
 
-    /* Main layout */
     main {
       max-width: 1100px;
       margin: 55px auto;
@@ -99,7 +104,6 @@
       margin: 0 auto;
     }
 
-    /* Main card */
     .verification-card {
       max-width: 750px;
       margin: 0 auto;
@@ -180,7 +184,6 @@
       white-space: nowrap;
     }
 
-    /* Instructions */
     .section-title {
       font-size: 16px;
       margin-bottom: 21px;
@@ -207,6 +210,7 @@
 
     .step-content {
       flex: 1;
+      min-width: 0;
     }
 
     .step-content h3 {
@@ -242,9 +246,8 @@
     }
 
     .copy-btn {
-      border: 0;
-      background: white;
       border: 1px solid #dfe4ee;
+      background: white;
       padding: 9px 12px;
       border-radius: 8px;
       cursor: pointer;
@@ -260,7 +263,6 @@
       border-color: #b9c7ff;
     }
 
-    /* Notice */
     .notice {
       background: #f0f5ff;
       border: 1px solid #dce7ff;
@@ -286,7 +288,6 @@
       color: #233e82;
     }
 
-    /* Button */
     .actions {
       display: flex;
       gap: 12px;
@@ -339,16 +340,10 @@
       font-size: 12px;
     }
 
-    footer a {
-      color: #5268ba;
-      text-decoration: none;
-    }
-
-    /* Mobile responsive */
     @media (max-width: 600px) {
       nav {
-        height: 68px;
-        padding: 0 20px;
+        min-height: 68px;
+        padding: 12px 20px;
       }
 
       .logo {
@@ -406,7 +401,6 @@
 </head>
 
 <body>
-
   <nav>
     <div class="logo">
       <div class="logo-icon">✓</div>
@@ -426,7 +420,6 @@
     </div>
 
     <section class="verification-card">
-
       <div class="card-header">
         <div class="shield">🛡️</div>
         <div>
@@ -436,13 +429,12 @@
       </div>
 
       <div class="card-body">
-
         <label class="field-label">Your Website Domain</label>
 
         <div class="domain-box">
           <span class="domain-icon">🌐</span>
-          <span class="domain-text" id="domain">www.example.com</span>
-          <span class="secure-label">● HTTPS Ready</span>
+          <span class="domain-text" id="domain">www.rajputanatourandtravel.com</span>
+          <span class="secure-label">● HTTPS</span>
         </div>
 
         <h3 class="section-title">Verification Instructions</h3>
@@ -463,14 +455,13 @@
           <div class="step-content">
             <h3>Add your verification meta tag</h3>
             <p>
-              Copy the exact verification tag provided by your
-              verification service and place it inside the
-              HTML head section.
+              Copy the exact verification tag provided by Meta and place it
+              inside the HTML head section.
             </p>
 
             <div class="code-box">
-              <code id="metaTag">&lt;meta name="facebook-domain-verification" content="YOUR_VERIFICATION_CODE"&gt;</code>
-              <button class="copy-btn" onclick="copyTag()">Copy</button>
+              <code id="metaTag">&lt;meta name="facebook-domain-verification" content="vvlm7yd644wjur4ns4sbisypo85u6m" /&gt;</code>
+              <button class="copy-btn" type="button" onclick="copyTag()">Copy</button>
             </div>
           </div>
         </div>
@@ -480,9 +471,9 @@
           <div class="step-content">
             <h3>Save and deploy your website</h3>
             <p>
-              Save index.html, commit your changes to GitHub if
-              applicable, and deploy the updated site through AWS
-              Amplify or your hosting provider.
+              Save index.html, commit your changes to GitHub, and push them
+              to the branch connected to AWS Amplify. Wait for the deployment
+              to finish successfully.
             </p>
           </div>
         </div>
@@ -490,11 +481,11 @@
         <div class="step">
           <div class="step-number">4</div>
           <div class="step-content">
-            <h3>Confirm the verification</h3>
+            <h3>Confirm the verification tag is live</h3>
             <p>
-              Open your published website, view its page source,
-              and confirm the exact meta tag appears inside
-              the head section.
+              Open your published homepage, view its page source, and search
+              for facebook-domain-verification. Confirm the exact tag appears
+              in the HTML source.
             </p>
           </div>
         </div>
@@ -502,20 +493,19 @@
         <div class="notice">
           <span class="notice-icon">ℹ️</span>
           <p>
-            <strong>Important:</strong> This page is an instructional
-            interface only. The displayed domain and example tag are
-            placeholders. Verification must be completed through the
-            actual service, such as Meta Business Settings. A successful
-            deployment alone does not verify domain ownership.
+            <strong>Important:</strong> This page provides instructions only.
+            Domain verification is completed in Meta Business Settings, not
+            by clicking a button on this page. The tag must be present on the
+            actual homepage served for rajputanatourandtravel.com.
           </p>
         </div>
 
         <div class="actions">
-          <button class="btn btn-secondary" onclick="copyTag()">
+          <button class="btn btn-secondary" type="button" onclick="copyTag()">
             Copy Meta Tag
           </button>
 
-          <button class="btn btn-primary" onclick="openWebsite()">
+          <button class="btn btn-primary" type="button" onclick="openWebsite()">
             Open My Website ↗
           </button>
         </div>
@@ -523,7 +513,6 @@
         <p id="message" aria-live="polite">
           Ready to begin your domain verification.
         </p>
-
       </div>
     </section>
   </main>
@@ -533,41 +522,33 @@
   </footer>
 
   <script>
-    // Update these values for your website.
-    const websiteDomain = "www.example.com";
+    const websiteDomain = "www.rajputanatourandtravel.com";
+    const websiteUrl = "https://www.rajputanatourandtravel.com";
+    const verificationTag =
+      '<meta name="facebook-domain-verification" content="vvlm7yd644wjur4ns4sbisypo85u6m" />';
 
     document.getElementById("domain").textContent = websiteDomain;
+    document.getElementById("metaTag").textContent = verificationTag;
 
     async function copyTag() {
-      const tag = document.getElementById("metaTag").textContent;
       const message = document.getElementById("message");
 
       try {
-        await navigator.clipboard.writeText(tag);
-        message.textContent = "Meta tag copied successfully.";
+        await navigator.clipboard.writeText(verificationTag);
+        message.textContent = "Meta verification tag copied successfully.";
       } catch (error) {
         message.textContent =
-          "Copy was blocked by your browser. Please select and copy the tag manually.";
+          "Copy was blocked by your browser. Select and copy the tag shown above manually.";
       }
     }
 
     function openWebsite() {
-      const message = document.getElementById("message");
-
-      // Replace with your actual HTTPS domain.
-      const websiteUrl = "https://www.example.com";
-
-      if (websiteUrl.includes("example.com")) {
-        message.textContent =
-          "Please replace the example URL with your actual website domain first.";
-        return;
-      }
-
       window.open(websiteUrl, "_blank", "noopener,noreferrer");
     }
   </script>
-
 </body>
 </html>
-```
-
+'''
+path = Path("/mnt/data/domain_verification.html")
+path.write_text(code, encoding="utf-8")
+print(f"Created {path} ({len(code.splitlines())} lines)")
