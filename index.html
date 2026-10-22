@@ -1,305 +1,588 @@
+# Domain Verification Page
 
+Save the following code as `index.html`.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7ff">
 
-  <title>Prashank Pandey | Login</title>
-  <meta name="description" content="Welcome to Prashank Pandey's website.">
+  <title>Domain Verification | Website Security</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(ellipse at top left, #312e81 0%, transparent 45%),
-        radial-gradient(ellipse at bottom right, #581c87 0%, transparent 45%),
-        #0b1020;
-      color: #fff;
+                   Roboto, Arial, sans-serif;
+      background: #f5f7ff;
+      color: #172033;
+      min-height: 100vh;
     }
 
-    .login-box {
-      width: 100%;
-      max-width: 410px;
-      padding: 42px 35px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.07);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      text-align: center;
-      animation: appear 0.6s ease-out;
+    /* Navigation */
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid #e7eaf2;
     }
 
     .logo {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 22px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #7c3aed, #4f46e5);
-      box-shadow: 0 8px 28px rgba(99, 72, 220, 0.3);
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    h1 {
-      margin-bottom: 12px;
-      font-size: clamp(25px, 5vw, 31px);
+      gap: 12px;
+      font-size: 21px;
       font-weight: 750;
-      letter-spacing: -1px;
-      background: linear-gradient(90deg, #c4b5fd, #818cf8, #e9d5ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      letter-spacing: -0.5px;
     }
 
-    .subtitle {
-      margin-bottom: 30px;
-      color: #b8c0d9;
-      font-size: 15px;
-      line-height: 1.6;
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #315efb, #7548f7);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 22px;
     }
 
-    .field {
-      margin-bottom: 16px;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #e0e7ff;
+    .nav-label {
+      color: #667085;
       font-size: 13px;
       font-weight: 600;
     }
 
-    input[type="email"],
-    input[type="password"] {
-      display: block;
-      width: 100%;
-      padding: 15px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 12px;
-      outline: none;
-      background: rgba(8, 13, 30, 0.65);
-      color: #fff;
-      font-size: 15px;
-      transition: border-color 0.25s, box-shadow 0.25s;
+    /* Main layout */
+    main {
+      max-width: 1100px;
+      margin: 55px auto;
+      padding: 0 24px;
     }
 
-    input::placeholder {
-      color: #8992ae;
+    .heading {
+      text-align: center;
+      margin-bottom: 38px;
     }
 
-    input:focus {
-      border-color: #a78bfa;
-      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.17);
-    }
-
-    .options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin: 4px 0 22px;
-      color: #b8c0d9;
+    .eyebrow {
+      display: inline-block;
+      color: #315efb;
+      background: #e9eeff;
+      border-radius: 30px;
+      padding: 8px 15px;
       font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
     }
 
-    .remember {
+    h1 {
+      font-size: clamp(30px, 5vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      color: #697386;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Main card */
+    .verification-card {
+      max-width: 750px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #e8ebf3;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 18px 55px rgba(34, 51, 100, 0.07);
+    }
+
+    .card-header {
+      padding: 28px 32px;
+      border-bottom: 1px solid #edf0f6;
       display: flex;
       align-items: center;
-      gap: 7px;
-      margin: 0;
-      font-weight: 400;
+      gap: 17px;
     }
 
-    .remember input {
-      accent-color: #8b5cf6;
+    .shield {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: #edf2ff;
+      border-radius: 16px;
+      font-size: 26px;
+      flex-shrink: 0;
     }
 
-    .options a,
-    .signup a {
-      color: #c4b5fd;
-      text-decoration: none;
+    .card-header h2 {
+      font-size: 19px;
+      margin-bottom: 6px;
     }
 
-    .options a:hover,
-    .signup a:hover {
-      text-decoration: underline;
+    .card-header p {
+      color: #7b8497;
+      font-size: 13px;
     }
 
-    button {
-      width: 100%;
-      padding: 15px;
-      border: none;
+    .card-body {
+      padding: 32px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .domain-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #dfe4ee;
+      background: #fafbfe;
+      padding: 15px 16px;
       border-radius: 12px;
-      background: linear-gradient(100deg, #7c3aed, #4f46e5);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 650;
-      cursor: pointer;
-      box-shadow: 0 8px 24px rgba(99, 72, 220, 0.25);
-      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      margin-bottom: 26px;
     }
 
-    button:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.12);
-      box-shadow: 0 12px 30px rgba(99, 72, 220, 0.4);
+    .domain-icon {
+      font-size: 20px;
     }
 
-    button:active {
-      transform: translateY(0);
-    }
-
-    button:focus-visible {
-      outline: 2px solid #c4b5fd;
-      outline-offset: 4px;
-    }
-
-    #message {
-      margin-top: 18px;
-      color: #c4b5fd;
+    .domain-text {
+      flex: 1;
+      min-width: 0;
       font-size: 14px;
-      line-height: 1.5;
+      font-weight: 650;
+      overflow-wrap: anywhere;
     }
 
-    .signup {
-      margin-top: 26px;
-      color: #b8c0d9;
+    .secure-label {
+      color: #16834b;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Instructions */
+    .section-title {
+      font-size: 16px;
+      margin-bottom: 21px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 23px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #edf1ff;
+      color: #315efb;
+      font-size: 14px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h3 {
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .step-content p {
+      color: #778196;
       font-size: 13px;
       line-height: 1.7;
     }
 
-    .footer {
-      margin-top: 28px;
-      color: #7f89a7;
-      font-size: 11px;
+    .code-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 14px;
+      background: #f7f8fc;
+      border: 1px solid #e6e9f2;
+      border-radius: 10px;
+      margin-top: 12px;
     }
 
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .code-box code {
+      flex: 1;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      color: #39415a;
+      line-height: 1.7;
     }
 
-    @media (max-width: 480px) {
-      .login-box {
-        padding: 34px 24px;
-        border-radius: 20px;
-      }
+    .copy-btn {
+      border: 0;
+      background: white;
+      border: 1px solid #dfe4ee;
+      padding: 9px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #344054;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: 0.2s;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+    .copy-btn:hover {
+      background: #edf1ff;
+      border-color: #b9c7ff;
+    }
+
+    /* Notice */
+    .notice {
+      background: #f0f5ff;
+      border: 1px solid #dce7ff;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      margin-top: 27px;
+      margin-bottom: 26px;
+    }
+
+    .notice-icon {
+      font-size: 19px;
+    }
+
+    .notice p {
+      color: #52617d;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .notice strong {
+      color: #233e82;
+    }
+
+    /* Button */
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 15px 20px;
+      border-radius: 11px;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      color: white;
+      border: 1px solid #315efb;
+      background: linear-gradient(135deg, #315efb, #6848f5);
+      box-shadow: 0 7px 16px rgba(49, 94, 251, 0.19);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(49, 94, 251, 0.27);
+    }
+
+    .btn-secondary {
+      color: #344054;
+      border: 1px solid #dfe4ee;
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      background: #f8f9fc;
+    }
+
+    #message {
+      font-size: 13px;
+      line-height: 1.7;
+      text-align: center;
+      margin-top: 18px;
+      color: #667085;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #8a93a5;
+      font-size: 12px;
+    }
+
+    footer a {
+      color: #5268ba;
+      text-decoration: none;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      nav {
+        height: 68px;
+        padding: 0 20px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .nav-label {
+        font-size: 11px;
+      }
+
+      main {
+        margin: 35px auto;
+        padding: 0 15px;
+      }
+
+      .heading {
+        margin-bottom: 27px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      .card-header,
+      .card-body {
+        padding: 22px 19px;
+      }
+
+      .card-header h2 {
+        font-size: 16px;
+      }
+
+      .domain-box {
+        flex-wrap: wrap;
+      }
+
+      .secure-label {
+        margin-left: 32px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="login-box" id="home">
-    <div class="logo" aria-hidden="true">PP</div>
 
-    <h1>Prashank Pandey</h1>
-    <p class="subtitle">Welcome back! Please log in to continue.</p>
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">✓</div>
+      <span>DomainGuard</span>
+    </div>
+    <div class="nav-label">DOMAIN MANAGEMENT</div>
+  </nav>
 
-    <form id="loginForm">
-      <div class="field">
-        <label for="email">Email address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="you@example.com"
-          autocomplete="username"
-          required
-        >
-      </div>
-
-      <div class="field">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          autocomplete="current-password"
-          required
-        >
-      </div>
-
-      <div class="options">
-        <label class="remember">
-          <input type="checkbox" id="remember">
-          Remember me
-        </label>
-
-        <a href="#help" id="helpLink">Need help?</a>
-      </div>
-
-      <button type="submit">Log In</button>
-
-      <p id="message" role="status" aria-live="polite"></p>
-    </form>
-
-    <div class="signup">
-      Welcome to the website of
-      <a href="#home">Prashank Pandey</a>.
+  <main>
+    <div class="heading">
+      <div class="eyebrow">Website Security</div>
+      <h1>Verify Your Domain</h1>
+      <p class="subtitle">
+        Confirm ownership of your website to securely connect your
+        domain with your business tools and services.
+      </p>
     </div>
 
-    <div class="footer">
-      &copy; <span id="year"></span> Prashank Pandey
-    </div>
+    <section class="verification-card">
+
+      <div class="card-header">
+        <div class="shield">🛡️</div>
+        <div>
+          <h2>Domain Ownership Verification</h2>
+          <p>Follow the steps below to verify your website.</p>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <label class="field-label">Your Website Domain</label>
+
+        <div class="domain-box">
+          <span class="domain-icon">🌐</span>
+          <span class="domain-text" id="domain">www.example.com</span>
+          <span class="secure-label">● HTTPS Ready</span>
+        </div>
+
+        <h3 class="section-title">Verification Instructions</h3>
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Open your website's HTML file</h3>
+            <p>
+              Open your website project in VS Code and locate
+              the index.html file in the root directory.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Add your verification meta tag</h3>
+            <p>
+              Copy the exact verification tag provided by your
+              verification service and place it inside the
+              HTML head section.
+            </p>
+
+            <div class="code-box">
+              <code id="metaTag">&lt;meta name="facebook-domain-verification" content="YOUR_VERIFICATION_CODE"&gt;</code>
+              <button class="copy-btn" onclick="copyTag()">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Save and deploy your website</h3>
+            <p>
+              Save index.html, commit your changes to GitHub if
+              applicable, and deploy the updated site through AWS
+              Amplify or your hosting provider.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Confirm the verification</h3>
+            <p>
+              Open your published website, view its page source,
+              and confirm the exact meta tag appears inside
+              the head section.
+            </p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <span class="notice-icon">ℹ️</span>
+          <p>
+            <strong>Important:</strong> This page is an instructional
+            interface only. The displayed domain and example tag are
+            placeholders. Verification must be completed through the
+            actual service, such as Meta Business Settings. A successful
+            deployment alone does not verify domain ownership.
+          </p>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" onclick="copyTag()">
+            Copy Meta Tag
+          </button>
+
+          <button class="btn btn-primary" onclick="openWebsite()">
+            Open My Website ↗
+          </button>
+        </div>
+
+        <p id="message" aria-live="polite">
+          Ready to begin your domain verification.
+        </p>
+
+      </div>
+    </section>
   </main>
 
+  <footer>
+    © 2026 DomainGuard · Domain verification guidance
+  </footer>
+
   <script>
-    const loginForm = document.getElementById("loginForm");
-    const message = document.getElementById("message");
+    // Update these values for your website.
+    const websiteDomain = "www.example.com";
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("domain").textContent = websiteDomain;
 
-    loginForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    async function copyTag() {
+      const tag = document.getElementById("metaTag").textContent;
+      const message = document.getElementById("message");
 
-      // Demonstration only: no credentials are sent or stored.
-      message.textContent =
-        "Welcome to Prashank Pandey's website!";
+      try {
+        await navigator.clipboard.writeText(tag);
+        message.textContent = "Meta tag copied successfully.";
+      } catch (error) {
+        message.textContent =
+          "Copy was blocked by your browser. Please select and copy the tag manually.";
+      }
+    }
 
-      loginForm.reset();
-    });
+    function openWebsite() {
+      const message = document.getElementById("message");
 
-    document.getElementById("helpLink").addEventListener("click", function (event) {
-      event.preventDefault();
-      message.textContent =
-        "This is a demo login page. Authentication is not configured.";
-    });
+      // Replace with your actual HTTPS domain.
+      const websiteUrl = "https://www.example.com";
+
+      if (websiteUrl.includes("example.com")) {
+        message.textContent =
+          "Please replace the example URL with your actual website domain first.";
+        return;
+      }
+
+      window.open(websiteUrl, "_blank", "noopener,noreferrer");
+    }
   </script>
+
 </body>
 </html>
+```
+
+## How to use it
+
+1. Open VS Code on your Mac.
+2. Open your website project folder.
+3. Create or open `index.html`.
+4. Paste the code and save it.
+5. Open the file in your browser to preview the page.
+6. Replace `www.example.com` with your actual domain.
+7. Customize the meta tag with the **exact code supplied by Meta**.
+
+**Important for your AWS Amplify website:** If you are verifying your domain in Meta Business Settings, add the verification tag to the existing website's `<head>` section. Don't replace your existing website with this instructional page, because doing so could remove your current website content.
